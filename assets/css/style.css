@@ -143,7 +143,7 @@ html.gated{overflow:hidden}
 
 /* transport-modes tile (replaces the two empty accent tiles) */
 .t-modes{grid-column:span 2;background:var(--teal);justify-content:space-between;gap:16px}
-.modes{display:flex;gap:clamp(12px,2.4vw,26px);align-items:center}
+.modes{display:flex;justify-content:space-between;align-items:center;width:100%;gap:10px;padding:0 clamp(4px,2vw,28px)}
 .brand-ic{display:inline-block;background:#fff;
   -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-position:center;mask-position:center}
