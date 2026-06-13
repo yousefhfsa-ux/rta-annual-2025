@@ -1,0 +1,47 @@
+{
+ "w": 1905,
+ "h": 1350,
+ "ar": 1.411,
+ "elements": [
+  {
+   "name": "train",
+   "file": "train.png",
+   "left": 0.0,
+   "top": 46.22,
+   "w": 44.2,
+   "dir": "ltr",
+   "dur": 30,
+   "delay": -8
+  },
+  {
+   "name": "taxi",
+   "file": "taxi.png",
+   "left": 63.31,
+   "top": 85.19,
+   "w": 15.22,
+   "dir": "rtl",
+   "dur": 14,
+   "delay": -4
+  },
+  {
+   "name": "cyclist",
+   "file": "cyclist.png",
+   "left": 89.87,
+   "top": 83.11,
+   "w": 7.87,
+   "dir": "rtl",
+   "dur": 22,
+   "delay": 0
+  },
+  {
+   "name": "sun",
+   "file": "sun.png",
+   "left": 44.93,
+   "top": 7.11,
+   "w": 8.71,
+   "dir": "bob",
+   "dur": 0,
+   "delay": 0
+  }
+ ]
+}

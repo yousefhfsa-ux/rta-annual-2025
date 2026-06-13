@@ -1,0 +1,6 @@
+# build scripts + raw extraction (not needed by the hosted site)
+build/
+assets/img/
+_contact/
+_preview/
+.DS_Store
