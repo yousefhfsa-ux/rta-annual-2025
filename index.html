@@ -12,6 +12,35 @@
 </head>
 <body>
 
+<!-- private-preview password gate -->
+<div id="gate">
+  <form id="gateForm" autocomplete="off">
+    <span class="swoosh"><img src="assets/brand/logo/logo-white.svg" alt="RTA" style="height:54px"></span>
+    <h1>محتوى خاص</h1>
+    <p>هذه نسخة أولية مخصّصة للجهات المعنية فقط.<br>الرجاء إدخال كلمة المرور للاطّلاع.</p>
+    <input type="password" id="gatePass" placeholder="كلمة المرور" autocomplete="current-password" autofocus>
+    <button type="submit">دخول</button>
+    <div id="gateErr" role="alert"></div>
+    <small class="en">RTA · Annual Report 2025 — Private preview</small>
+  </form>
+</div>
+<script>
+(function(){
+  var HASH="b3f13e5c3b66cf45bf6eb5cb3ca8895c45ea01cc66323dc92459a935c66c542e";
+  var gate=document.getElementById('gate');
+  if(sessionStorage.getItem('rta_ok')==='1'){ gate.remove(); return; }
+  document.documentElement.classList.add('gated');
+  async function sha(s){var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');}
+  document.getElementById('gateForm').addEventListener('submit',async function(e){
+    e.preventDefault();
+    var ok=(await sha(document.getElementById('gatePass').value.trim()))===HASH;
+    if(ok){ sessionStorage.setItem('rta_ok','1'); document.documentElement.classList.remove('gated'); gate.remove(); }
+    else{ document.getElementById('gateErr').textContent='كلمة المرور غير صحيحة'; document.getElementById('gatePass').select(); }
+  });
+})();
+</script>
+
 <div id="progress"><i></i></div>
 
 <header id="topbar">

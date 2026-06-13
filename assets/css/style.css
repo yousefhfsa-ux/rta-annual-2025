@@ -40,6 +40,21 @@ h1,h2,h3,h4{font-weight:900;line-height:1.04;letter-spacing:-.01em}
 .swoosh{display:inline-block}
 .swoosh svg,.swoosh img{display:block;height:100%;width:auto}
 
+/* ---------- private-preview password gate ---------- */
+html.gated{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;text-align:center;
+  background:radial-gradient(120% 120% at 70% 10%,#26299b,var(--blue) 55%,#0e1252);color:#fff;padding:24px}
+#gateForm{width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:14px}
+#gate h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:900}
+#gate p{opacity:.9}
+#gatePass{width:100%;padding:14px 16px;border:0;font-family:inherit;font-size:1rem;text-align:center;
+  background:#fff;color:var(--ink);direction:ltr}
+#gate button{width:100%;padding:14px;border:0;cursor:pointer;font-family:inherit;font-weight:800;
+  font-size:1rem;background:var(--red);color:#fff;transition:filter .2s}
+#gate button:hover{filter:brightness(1.1)}
+#gateErr{color:#ffc9c9;font-weight:700;min-height:1.2em;font-size:.9rem}
+#gate small{opacity:.6;margin-top:4px}
+
 /* ---------- progress + nav ---------- */
 #progress{position:fixed;inset:0 0 auto 0;height:4px;z-index:120;background:transparent}
 #progress > i{display:block;height:100%;width:0;background:var(--red);transition:width .1s linear}
