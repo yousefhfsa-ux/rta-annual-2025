@@ -99,11 +99,18 @@ html.gated{overflow:hidden}
 .tile.d4{animation-delay:.29s}.tile.d5{animation-delay:.37s}.tile.d6{animation-delay:.45s}
 .tile.d7{animation-delay:.53s}.tile.d8{animation-delay:.61s}
 
-.t-make{grid-column:span 2;grid-row:span 2;background:var(--red);justify-content:space-between}
+/* hover lift (kicks in after the entrance animation finishes) */
+.tile{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.tile:hover{transform:translateY(-6px);box-shadow:0 24px 44px -22px rgba(20,21,40,.45);z-index:3}
+
+.t-make{grid-column:span 2;grid-row:span 2;background:var(--red);justify-content:space-between;gap:14px}
 .t-make .logo{height:42px;align-self:flex-start}
 .t-make h1{font-size:clamp(2.4rem,5vw,4.4rem);color:#fff;direction:ltr;text-align:left}
-.t-make h1 span{display:block}
-.t-make .tag-en{margin-top:10px;font-size:.8rem;opacity:.85}
+.t-make h1 span{display:block;opacity:0;animation:wordin .6s var(--ease) forwards}
+.t-make h1 span:nth-child(1){animation-delay:.35s}
+.t-make h1 span:nth-child(2){animation-delay:.5s}
+.t-make h1 span:nth-child(3){animation-delay:.65s}
+@keyframes wordin{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 .t-title{grid-column:span 2;background:var(--blue)}
 .t-title h2{font-size:clamp(1.3rem,2.6vw,2.1rem);color:#fff;font-weight:800}
 .t-title .sub{margin-top:8px;color:rgba(255,255,255,.85);font-weight:500;font-size:.95rem}
@@ -114,21 +121,27 @@ html.gated{overflow:hidden}
 .t-twenty .big{font-weight:900;font-size:clamp(2.6rem,6vw,4rem);line-height:.85}
 .t-twenty .lbl{font-weight:700;font-size:.8rem;margin-top:4px}
 .t-img{grid-column:span 2;padding:0;min-height:200px}
-.t-img img{width:100%;height:100%;object-fit:cover}
-.t-a1{background:var(--green)}.t-a2{background:var(--teal)}
-.t-a3{background:var(--magenta)}.t-a4{background:var(--orange)}
-.tile.solid{min-height:112px}
-/* official RTA icons, recoloured white via CSS mask (mask-image set inline) */
+.t-img img{width:100%;height:100%;object-fit:cover;animation:kenburns 20s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
+
+/* transport-modes tile (replaces the two empty accent tiles) */
+.t-modes{background:var(--teal);justify-content:space-between;gap:16px}
+.modes{display:flex;gap:clamp(12px,2.4vw,26px);align-items:center}
 .brand-ic{display:inline-block;background:#fff;
   -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
   -webkit-mask-position:center;mask-position:center}
-.modes-tile{justify-content:center;align-items:center}
-.modes{display:flex;gap:clamp(10px,2vw,20px);align-items:center;justify-content:center;width:100%}
-.modes .brand-ic{width:clamp(30px,4vw,42px);height:clamp(30px,4vw,42px)}
-.tile.solid .brand-ic.big{position:absolute;inset:auto 22px 18px auto;width:48px;height:48px;opacity:.95}
+.t-modes .brand-ic{width:clamp(30px,4.4vw,46px);height:clamp(30px,4.4vw,46px);
+  animation:modewave 2.6s ease-in-out infinite;animation-delay:calc(var(--i) * .16s)}
+@keyframes modewave{0%,72%,100%{transform:translateY(0)}82%{transform:translateY(-12px)}}
+.t-modes .modes-lbl{color:#fff;font-weight:700;font-size:clamp(.95rem,1.5vw,1.15rem);line-height:1.5;opacity:.96}
+
 @media(max-width:760px){
   .hero-grid{grid-template-columns:repeat(2,1fr)}
-  .t-make,.t-title,.t-img{grid-column:span 2}
+  .t-make,.t-title,.t-img,.t-modes{grid-column:span 2}
+}
+@media (prefers-reduced-motion:reduce){
+  .t-img img,.t-modes .brand-ic{animation:none}
+  .t-make h1 span{animation:none;opacity:1}
 }
 
 .scrollcue{display:flex;justify-content:center;gap:8px;align-items:center;color:var(--muted);
