@@ -9,7 +9,7 @@ window.RTA = {
            green:'#00b054', olive:'#a1a521' },
   chapters: [
     { id:'vision',  ar:'الرؤية والقيادة',        en:'Vision & Leadership',
-      color:'#161c8f', hero:'hero-cover.jpg', spreads:[2,8], icon:'eye',
+      color:'#161c8f', hero:'hero-cover.jpg', spreads:[3,8], icon:'eye',
       blurb:'رؤية قيادية رسّخت مكانة دبي مدينةً للمستقبل، وأسست لعقدين من الإنجاز.' },
     { id:'year',    ar:'حصاد العام',             en:'The Year in Review',
       color:'#025ee0', hero:'hero-year.jpg', spreads:[9,18], icon:'calendar',

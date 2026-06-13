@@ -138,9 +138,6 @@
 
     /* faithful spread gallery */
     const sp=el('div','spreads');
-    sp.appendChild(el('div','lead',
-      `<div class="tag en">${ch.en}</div><h3>صفحات هذا القسم كما وردت في التقرير</h3>
-       <p>محتوى أصلي صفحةً بصفحة — تظهر تدريجياً مع التمرير</p>`));
     for(let p=ch.spreads[0];p<=ch.spreads[1];p++){
       const fig=el('figure','spread r');
       fig.innerHTML=`<img loading="lazy" src="assets/pages/spread_${pad(p)}.jpg" alt="صفحة ${p}">`;
