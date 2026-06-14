@@ -150,7 +150,9 @@ html.gated{overflow:hidden}
 .t-modes .brand-ic{width:clamp(30px,4.4vw,46px);height:clamp(30px,4.4vw,46px);
   animation:modewave 2.6s ease-in-out infinite;animation-delay:calc(var(--i) * .16s)}
 @keyframes modewave{0%,72%,100%{transform:translateY(0)}82%{transform:translateY(-12px)}}
-.t-modes .modes-lbl{color:#fff;font-weight:700;font-size:clamp(.95rem,1.5vw,1.15rem);line-height:1.5;opacity:.96}
+.t-modes .modes-lbl{color:#fff;font-weight:700;font-size:clamp(.95rem,1.5vw,1.15rem);line-height:1.5}
+.t-modes .modes-lbl .w{opacity:.22;transition:opacity .4s var(--ease)}
+.t-modes .modes-lbl .w.lit{opacity:1}
 
 @media(max-width:760px){
   .hero-grid{grid-template-columns:repeat(2,1fr)}

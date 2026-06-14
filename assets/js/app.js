@@ -183,4 +183,16 @@
   let raf=0;
   addEventListener('scroll',()=>{ if(raf)return; raf=requestAnimationFrame(()=>{raf=0;parallax();}); },{passive:true});
   addEventListener('resize',parallax); parallax();
+
+  /* ---------- hero caption: words light up as you scroll down ---------- */
+  (function(){
+    const lbl=document.querySelector('.t-modes .modes-lbl'); if(!lbl) return;
+    const words=lbl.textContent.trim().split(/\s+/);
+    lbl.innerHTML=words.map(w=>'<span class="w">'+w+'</span>').join(' ');
+    const ws=[...lbl.querySelectorAll('.w')];
+    if(reduce){ ws.forEach(s=>s.classList.add('lit')); return; }
+    const reveal=()=>{ const n=Math.round(Math.min(1, scrollY/(innerHeight*0.6))*ws.length);
+      ws.forEach((s,i)=>s.classList.toggle('lit', i<n)); };
+    addEventListener('scroll',reveal,{passive:true}); addEventListener('resize',reveal); reveal();
+  })();
 })();
